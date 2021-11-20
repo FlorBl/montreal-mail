@@ -4,20 +4,6 @@
 {% block body %}
     <div id="user_logged">You're logged in as <h5>{{ request.user.email }}</h5></div>
     
-<!-- For smaller devices! -->
-    <div id="smaller_devices" class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a id="inbox" class="dropdown-item" href="#">Inbox</a>
-        <a id="compose" class="dropdown-item" href="#">New Message</a>
-        <a id="sent" class="dropdown-item" href="#">Sent</a>
-        <a id="archived" class="dropdown-item" href="#">Archive</a>
-        <a id="logout_button" class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
-    </div>
-        </div>
-        <!--______________________________________________________-->
     <div id="normal_view">
     <button class="btn btn-sm btn-outline-primary" id="inbox"><i class="fas fa-inbox"></i> Inbox</button>
     <button class="btn btn-sm btn-outline-primary" id="compose"><i class="fas fa-edit"></i> New Message</button>
@@ -25,6 +11,14 @@
     <button class="btn btn-sm btn-outline-primary" id="archived"><i class="fas fa-archive"></i> Archived</button>
     <a id="logout_button" class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
     </div>
+<!---->
+
+
+<div id="personalized">
+
+</div>
+
+<!---->
     <hr>
 
     <div id="emails-view">
@@ -49,7 +43,7 @@
                 <input class="form-control" id="compose-subject" placeholder="Subject">
             </div>
             <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
-            <input onclick = "send_email()" type="button" id="submit_button" class="btn btn-primary" value="Send"/>
+            <input onclick = "send_email()" thrype="button" id="submit_button" class="btn btn-primary" value="Send"/>
         </form>
     </div>
 

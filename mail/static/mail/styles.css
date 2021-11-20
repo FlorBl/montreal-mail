@@ -79,16 +79,31 @@ body{
   display: none;
 }
 
+.dropdown{
+  display: none;
+}
+
 @media only screen and (max-width: 545px) {
   /* For tablets: */
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
 #normal_view{
   display:none;
 }
-#smaller_devices{
+
+#personalized{
+  background-color:  lightblue;
+  height: 5vh;
+  margin-left: 0%!important;
+  width: 100vw;
   display: block;
-  position: absolute;
-  right: 0;
+ position: absolute;
+  bottom: 0;
 }
 
 }
