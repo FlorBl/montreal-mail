@@ -75,7 +75,21 @@ body{
   background-color: whitesmoke;
 }
 
-@media only screen and (min-width: 400px) {
+#smaller_devices{
+  display: none;
+}
+
+@media only screen and (max-width: 545px) {
   /* For tablets: */
 
+#normal_view{
+  display:none;
 }
+#smaller_devices{
+  display: block;
+  position: absolute;
+  right: 0;
+}
+
+}
+
