@@ -51,8 +51,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'livereload.middleware.LiveReloadScript' # added to avoid clearing the browser cache and refreshing everytime.
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
     
     # ./manage.py livereload (run this before the runserver)
 ]
