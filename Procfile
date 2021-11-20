@@ -1,1 +1,1 @@
-web: gunicorn project3.wsgi:application 
+gunicorn  project3:application -b xx.xxx.xxx.xx:8000
