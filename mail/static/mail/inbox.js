@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+
   // Use buttons to toggle between views
+  document.querySelector('#newMessage').addEventListener('click',() => redirectCompose());
+  document.querySelector('#showMenu').addEventListener('click',() => displayMenu())
+
+
   document.querySelector('#inbox').addEventListener('click', () => load_mailbox('inbox'));
   document.querySelector('#sent').addEventListener('click', () => load_mailbox('sent'));
   document.querySelector('#archived').addEventListener('click', () => load_mailbox('archive'));
@@ -9,6 +14,19 @@ document.addEventListener('DOMContentLoaded', function () {
   load_mailbox('inbox');
 
 });
+
+function redirectCompose(){
+  document.querySelector('#compose').click()
+  var hideComposeBtn = document.querySelector('#newMessage');
+  hideComposeBtn.style.display = 'none';
+
+  var showMenu = document.querySelector('#showMenu');
+  showMenu.style.cssFloat = 'right';
+}
+function displayMenu(){
+  var displayMenu = document.querySelector('#menu');
+  displayMenu.style.display = 'block';
+}
 
 function compose_email() {
 
@@ -330,4 +348,6 @@ function load_email() {
       mail_view.appendChild(btn);
       mail_view.appendChild(reply);
     });
+
+
 }

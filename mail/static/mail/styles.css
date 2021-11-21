@@ -86,25 +86,48 @@ body{
 @media only screen and (max-width: 545px) {
   /* For tablets: */
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
 #normal_view{
   display:none;
 }
 
 #personalized{
-  background-color:  lightblue;
+  display: grid;  
+  grid-template-columns: 1fr 1fr 1fr;  
+  grid-template-rows: 50px 50px;  
+  position: fixed;
   height: 5vh;
-  margin-left: 0%!important;
   width: 100vw;
-  display: block;
- position: absolute;
-  bottom: 0;
+  bottom: 10px;
+}
+#personalized i{
+  font-size:2.3rem;
+  color: rgb(0,120,212);
 }
 
+#submit_button{
+    margin: 0 auto;
+  display: block;
+}
+
+
+#menu{
+  height: 65vh;
+  width: 100vw;
+  background-color: #E0F7FA;
+  border-radius: 40px 40px 0px 0px;
+margin-top: auto;
+
+}
+
+#menu i{
+  font-size: large;
+   display: flex;
+   align-items: center; 
+   justify-content: center;
+}
+
+#menu{
+  display: none;
+}
 }
 

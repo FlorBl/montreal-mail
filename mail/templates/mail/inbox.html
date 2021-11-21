@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block body %}
+<div id="fullpage">
     <div id="user_logged">You're logged in as <h5>{{ request.user.email }}</h5></div>
     
     <div id="normal_view">
@@ -14,8 +15,10 @@
 <!---->
 
 
-<div id="personalized">
 
+<div id="personalized">
+<i type="button" id="showMenu"  class="fas fa-bars"></i>
+<i type="button" id="newMessage" class="fas fa-plus-circle"></i>
 </div>
 
 <!---->
@@ -26,7 +29,6 @@
 
     <div id = "email-view">
     </div>
-
     <div id="compose-view">
         <h3>New Email</h3>
         <div id="message_2"></div>
@@ -43,9 +45,20 @@
                 <input class="form-control" id="compose-subject" placeholder="Subject">
             </div>
             <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
-            <input onclick = "send_email()" thrype="button" id="submit_button" class="btn btn-primary" value="Send"/>
+            <input onclick = "send_email()" type="button" id="submit_button" class="btn btn-primary" value="Send"/>
         </form>
     </div>
+    
+<div id="menu">
+    <i class="fas fa-inbox">Inbox</i> 
+<i class="fas fa-edit">New Message</i> 
+    <i class="fas fa-paper-plane">Sent</i> 
+<i class="fas fa-archive">Archived</i> 
+<i class="fas fa-sign-out-alt"><a href="{% url 'logout' %}">Log Out</a></i>
+    
+</div>
+
+</div>
 
 
 {% endblock %}
