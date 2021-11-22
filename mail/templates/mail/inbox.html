@@ -3,7 +3,14 @@
 
 {% block body %}
 <div id="fullpage">
-    <div id="user_logged">You're logged in as <h5>{{ request.user.email }}</h5></div>
+    <div id="user_logged">You're logged in as <h5>{{ request.user.email }}</h5> <i id="signout" class="iconz fas fa-sign-out-alt"><a href="{% url 'logout' %}"> Log Out</a></i></div>
+    <div id="menu">
+    <button id="inbox_sm" class="iconz btn btn-sm btn-outline-primary"><i class="fas fa-inbox"> Inbox</i> </button>
+    <button id="sent_sm" class="iconz btn btn-sm btn-outline-primary"><i class="fas fa-paper-plane"> Sent</i></button>
+<button id="archive_sm" class="iconz btn btn-sm btn-outline-primary"><i class="fas fa-archive"> Archived</i></button>
+
+    
+</div>
     
     <div id="normal_view">
     <button class="btn btn-sm btn-outline-primary" id="inbox"><i class="fas fa-inbox"></i> Inbox</button>
@@ -17,8 +24,7 @@
 
 
 <div id="personalized">
-<i type="button" id="showMenu"  class="fas fa-bars"></i>
-<i type="button" id="newMessage" class="fas fa-plus-circle"></i>
+<i type="button" id="newMessage" class="iconz fas fa-plus-circle"></i>
 </div>
 
 <!---->
@@ -34,7 +40,7 @@
         <div id="message_2"></div>
         <form id="compose-form">
             <div class="form-group">
-                From: <input disabled class="form-control" value="{{ request.user.email }}">
+                From: <input disabled class="form-control" value="{{ request.user.email }}  (You)"> 
             </div>
             <div class="form-group">
                 To: <input id="compose-recipients" class="form-control">
@@ -49,14 +55,7 @@
         </form>
     </div>
     
-<div id="menu">
-    <i class="fas fa-inbox">Inbox</i> 
-<i class="fas fa-edit">New Message</i> 
-    <i class="fas fa-paper-plane">Sent</i> 
-<i class="fas fa-archive">Archived</i> 
-<i class="fas fa-sign-out-alt"><a href="{% url 'logout' %}">Log Out</a></i>
-    
-</div>
+
 
 </div>
 

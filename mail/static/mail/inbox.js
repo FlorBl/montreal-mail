@@ -1,9 +1,12 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function(){
 
 
   // Use buttons to toggle between views
-  document.querySelector('#newMessage').addEventListener('click',() => redirectCompose());
-  document.querySelector('#showMenu').addEventListener('click',() => displayMenu())
+  document.querySelector('#newMessage').addEventListener('click',compose_email);
+  document.querySelector('#inbox_sm').addEventListener('click',() => load_mailbox('inbox'));
+  document.querySelector('#archive_sm').addEventListener('click', () => load_mailbox('archive'));
+  document.querySelector('#sent_sm').addEventListener('click',() => load_mailbox('sent'));
+  document.querySelector('#newMessage').addEventListener('click',() => newMessage());
 
 
   document.querySelector('#inbox').addEventListener('click', () => load_mailbox('inbox'));
@@ -15,21 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-function redirectCompose(){
-  document.querySelector('#compose').click()
-  var hideComposeBtn = document.querySelector('#newMessage');
-  hideComposeBtn.style.display = 'none';
+function newMessage(){
+  var newMessage = document.querySelector('#newMessage');
+  newMessage.style.display = 'none';
 
-  var showMenu = document.querySelector('#showMenu');
-  showMenu.style.cssFloat = 'right';
+  
 }
-function displayMenu(){
-  var displayMenu = document.querySelector('#menu');
-  displayMenu.style.display = 'block';
-}
+
 
 function compose_email() {
-
+  
   // Show compose view and hide other views
   document.querySelector('#emails-view').style.display = 'none';
   document.querySelector('#compose-view').style.display = 'block';
@@ -49,6 +47,8 @@ function validateEmail(email) {
 }
 
 function send_email() {
+
+  
 
   //getting the values
   var recipients = document.querySelector('#compose-recipients').value;
@@ -126,7 +126,10 @@ function send_email() {
 
 //loads mailbox
 function load_mailbox(mailbox) {
+  var newMessage = document.querySelector('#newMessage');
+  newMessage.style.display = 'block';
 
+  
   var email_view = document.querySelector('#emails-view')
   document.querySelector('#email-view').style.display = 'none';
   document.querySelector('#compose-view').style.display = 'none';
@@ -214,6 +217,10 @@ function load_mailbox(mailbox) {
 
 //shows the email you clicked on from mailbox
 function load_email() {
+    var newMessage = document.querySelector('#newMessage');
+  newMessage.style.display = 'none';
+
+  
   event.stopImmediatePropagation();
   //keeping only the email-view and hiding the rest
   document.querySelector('#emails-view').style.display = 'none';
