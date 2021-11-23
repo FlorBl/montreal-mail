@@ -160,8 +160,7 @@ function load_mailbox(mailbox) {
           var reduceMessageDisplay = body.innerHTML.substring(0,60);
           body.innerHTML = `${reduceMessageDisplay}  ${'...'}`;
           body.style.display = 'block';
-          body.style.color = 'lightgray';
-          body.style.border = '1px solid red';
+          body.style.color = 'gray';
 
           id.innerHTML = emails[email]['id'];
           id.style.display = 'none';
@@ -173,6 +172,15 @@ function load_mailbox(mailbox) {
           }
           else {
             sub.innerHTML = emails[email]['subject'];
+            if ($(window).width() < 545){
+            var reduceMessageDisplay = body.innerHTML.substring(0,10);
+            sub.innerHTML = `${reduceMessageDisplay}  ${'...'}`;
+            }
+            else{
+            var reduceMessageDisplay = body.innerHTML.substring(0,20);
+            sub.innerHTML = `${reduceMessageDisplay}  ${'...'}`;
+            }
+
           }
 
         
@@ -186,7 +194,6 @@ function load_mailbox(mailbox) {
           mail.style.marginBottom = '0.3rem';
           mail.style.height = '13vh';
           mail.style.position = 'relative';
-          mail.style.border = '1px solid yellow';
           }
           else {
           mail.style.borderRadius = '10px';
