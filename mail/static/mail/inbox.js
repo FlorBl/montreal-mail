@@ -1,14 +1,22 @@
 document.addEventListener('DOMContentLoaded', function(){
+      document.querySelector('#submit_button').addEventListener('click', () =>{
+      alert('clicked');
+    });
 
 
-  // Use buttons to toggle between views
-  document.querySelector('#newMessage').addEventListener('click',compose_email);
+  // Use buttons to toggle between views (smaller devices)
   document.querySelector('#inbox_sm').addEventListener('click',() => load_mailbox('inbox'));
   document.querySelector('#archive_sm').addEventListener('click', () => load_mailbox('archive'));
   document.querySelector('#sent_sm').addEventListener('click',() => load_mailbox('sent'));
-  document.querySelector('#newMessage').addEventListener('click',() => newMessage());
+  document.querySelector('#newMessage').addEventListener('click',() =>{
+    document.querySelector('#newMessage').style.display = 'none';
+    compose_email();
+
+  });
 
 
+
+  // Use buttons to toggle between views (bigger devices)
   document.querySelector('#inbox').addEventListener('click', () => load_mailbox('inbox'));
   document.querySelector('#sent').addEventListener('click', () => load_mailbox('sent'));
   document.querySelector('#archived').addEventListener('click', () => load_mailbox('archive'));
@@ -16,18 +24,11 @@ document.addEventListener('DOMContentLoaded', function(){
   // By default, load the inbox
   load_mailbox('inbox');
 
+
 });
-
-function newMessage(){
-  var newMessage = document.querySelector('#newMessage');
-  newMessage.style.display = 'none';
-
-  
-}
 
 
 function compose_email() {
-  
   // Show compose view and hide other views
   document.querySelector('#emails-view').style.display = 'none';
   document.querySelector('#compose-view').style.display = 'block';
@@ -37,6 +38,8 @@ function compose_email() {
   document.querySelector('#compose-recipients').value = '';
   document.querySelector('#compose-subject').value = '';
   document.querySelector('#compose-body').value = '';
+
+  
 }
 
 //checks if the string is email or not.
@@ -126,9 +129,8 @@ function send_email() {
 
 //loads mailbox
 function load_mailbox(mailbox) {
-  var newMessage = document.querySelector('#newMessage');
-  newMessage.style.display = 'block';
 
+  document.querySelector('#newMessage').style.display = 'block';
   
   var email_view = document.querySelector('#emails-view')
   document.querySelector('#email-view').style.display = 'none';
@@ -217,8 +219,6 @@ function load_mailbox(mailbox) {
 
 //shows the email you clicked on from mailbox
 function load_email() {
-    var newMessage = document.querySelector('#newMessage');
-  newMessage.style.display = 'none';
 
   
   event.stopImmediatePropagation();

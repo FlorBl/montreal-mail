@@ -82,6 +82,9 @@ body{
   display: none;
 }
 
+.fas{
+  color:whitesmoke;
+}
 
 @media only screen and (max-width: 545px) {
   /* For tablets: */
@@ -92,7 +95,7 @@ body{
   padding:5px;
 }
 #normal_view{
-  display:none;
+visibility: hidden;
 }
 
 #personalized{
@@ -146,6 +149,7 @@ body{
 
 }
 
-.fas{
-  color:whitesmoke;
+#submit_button2{
+  visibility: hidden;
+  background-color: aquamarine !important;
 }
