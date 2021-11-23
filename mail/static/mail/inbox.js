@@ -157,9 +157,11 @@ function load_mailbox(mailbox) {
           var id = document.createElement('p');
           var body = document.createElement('p');
           body.innerText = emails[email]['body'];
-          var reduceMessageDisplay = body.innerHTML.substring(0,80);
-          body.innerHTML = `${reduceMessageDisplay}`;
+          var reduceMessageDisplay = body.innerHTML.substring(0,60);
+          body.innerHTML = `${reduceMessageDisplay}  ${'...'}`;
           body.style.display = 'block';
+          body.style.color = 'lightgray';
+          body.style.border = '1px solid red';
 
           id.innerHTML = emails[email]['id'];
           id.style.display = 'none';
@@ -184,6 +186,7 @@ function load_mailbox(mailbox) {
           mail.style.marginBottom = '0.3rem';
           mail.style.height = '13vh';
           mail.style.position = 'relative';
+          mail.style.border = '1px solid red';
           }
           else {
           mail.style.borderRadius = '10px';
@@ -352,9 +355,16 @@ function load_email() {
       //if the email is already archived
       if (archive) {
         btn.innerText = 'Unarchive';
+        btn.addEventListener('click',()=>{
+          alert('olga');
+        })
       }
       else {
         btn.innerText = 'Archive';
+                btn.addEventListener('click',()=>{
+          alert('olga');
+        })
+        
       }
       reply.innerText = 'Reply';
 
