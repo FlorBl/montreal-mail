@@ -186,7 +186,7 @@ function load_mailbox(mailbox) {
           mail.style.marginBottom = '0.3rem';
           mail.style.height = '13vh';
           mail.style.position = 'relative';
-          mail.style.border = '1px solid red';
+          mail.style.border = '1px solid yellow';
           }
           else {
           mail.style.borderRadius = '10px';

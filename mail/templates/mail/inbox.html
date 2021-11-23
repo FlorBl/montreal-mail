@@ -61,6 +61,12 @@
 
 {% endblock %}
 
+        {% block button %}
+<div id="personalized">
+<i type="button" id="newMessage" class="iconz fas fa-plus-circle"></i>
+</div>
+        {% endblock %}
+
 {% block script %}
     <script src="{% static 'mail/inbox.js' %}"></script>
 {% endblock %}
