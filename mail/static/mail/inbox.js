@@ -157,8 +157,8 @@ function load_mailbox(mailbox) {
           var id = document.createElement('p');
           var body = document.createElement('p');
           body.innerText = emails[email]['body'];
-          var reduceMessageDisplay = body.innerHTML.substring(0,60);
-          body.innerHTML = `${reduceMessageDisplay}  ${'...'}`;
+          var reduceText = body.innerHTML.substring(0,60);
+          body.innerHTML = `${reduceText}  ${'...'}`;
           body.style.display = 'block';
           body.style.color = 'gray';
 
@@ -173,12 +173,22 @@ function load_mailbox(mailbox) {
           else {
             sub.innerHTML = emails[email]['subject'];
             if ($(window).width() < 545){
-            var reduceMessageDisplay = body.innerHTML.substring(0,10);
-            sub.innerHTML = `${reduceMessageDisplay}  ${'...'}`;
+            var reduceText = sub.innerHTML.substring(0,10);
+            sub.innerHTML = `${reduceText} ${'...'}`;
             }
             else{
-            var reduceMessageDisplay = body.innerHTML.substring(0,20);
-            sub.innerHTML = `${reduceMessageDisplay}  ${'...'}`;
+
+            var reduceText = sub.innerHTML.substring(0,20);
+            
+            if(reduceText.length > 20)
+            {
+            sub.innerHTML = `${reduceText}  ${'...'}`;
+            }
+            else
+            {
+            sub.innerHTML = `${reduceText}`;
+            }
+
             }
 
           }
