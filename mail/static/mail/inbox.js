@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', function(){
-      document.querySelector('#submit_button').addEventListener('click', () =>{
-      alert('clicked');
-    });
 
 
   // Use buttons to toggle between views (smaller devices)
@@ -158,6 +155,11 @@ function load_mailbox(mailbox) {
           var sub = document.createElement('p');
           var time = document.createElement('p');
           var id = document.createElement('p');
+          var body = document.createElement('p');
+          body.innerText = emails[email]['body'];
+          var reduceMessageDisplay = body.innerHTML.substring(0,80);
+          body.innerHTML = `${reduceMessageDisplay}`;
+          body.style.display = 'block';
 
           id.innerHTML = emails[email]['id'];
           id.style.display = 'none';
@@ -170,21 +172,38 @@ function load_mailbox(mailbox) {
           else {
             sub.innerHTML = emails[email]['subject'];
           }
-          time.innerHTML = emails[email]['timestamp'];
 
+        
+
+
+
+
+        if ($(window).width() < 545) {
           mail.style.borderRadius = '10px';
           mail.style.borderWidth = '0.1rem';
           mail.style.marginBottom = '0.3rem';
+          mail.style.height = '13vh';
+          mail.style.position = 'relative';
+          }
+          else {
+          mail.style.borderRadius = '10px';
+          mail.style.borderWidth = '0.1rem';
+          mail.style.marginBottom = '0.3rem';
+          }
+
+
           if (emails[email]['read'] == true) {
             mail.style.backgroundColor = 'rgb(255,255,255)';
-            mail.style.height = 'auto';
+
 
           }
           else {
             mail.style.backgroundColor = 'white';
-            mail.style.height = 'auto';
+            mail.style.height = '13vh';
             mail.style.color = 'rgb(0,120,212)';
             mail.style.fontWeight = 'bold';
+            sender.style.fontWeight = 'bold';
+            body.style.fontWeight = 'normal';
           }
 
           mail.classList.add('container');
@@ -192,20 +211,44 @@ function load_mailbox(mailbox) {
 
           sender.style.display = 'inline-block';
           sender.style.margin = '1rem';
+          if ($(window).width() < 545) {
+            sub.style.display = 'inline-block';
+            sub.style.margin = '1rem';
+            
 
+          }
+          else {
           sub.style.display = 'inline-block';
           sub.style.margin = '1rem';
+          }
 
+          if ($(window).width() < 545) {
           time.style.display = 'inline-block';
-          time.style.margin = '1rem';
+          time.style.margin = '0.5rem';
+          time.style.right = '10px';
+          time.style.position = 'absolute';
+          time.style.top = '8px';
+          time.style.color = 'black';
+          time.innerHTML = emails[email]['timestamp'].split(' ').slice(0,2).join(' ');
+          
+
+          }
+          else {
+          time.style.display = 'inline-block';
+          time.style.margin = '0.5rem';
           time.style.float = 'right';
           time.style.color = 'black';
+          time.innerHTML = emails[email]['timestamp'];
+
+          }
+
 
           email_view.appendChild(mail);
           mail.appendChild(sender);
           mail.appendChild(sub);
           mail.appendChild(time);
           mail.appendChild(id);
+          mail.appendChild(body);
           //what happens when a user clicks on an email in the mailbox
           mail.addEventListener('click', () => load_email());
           sub.addEventListener('click', () => load_email());
@@ -227,7 +270,7 @@ function load_email() {
   document.querySelector('#compose-view').style.display = 'none';
   mail_view = document.querySelector('#email-view');
   mail_view.style.display = 'block';
-  mail_view.style.backgroundColor = 'white';
+  mail_view.style.backgroundColor = 'whitesmoke';
 
   var tar = event.target;
   console.log(tar.children);
@@ -264,6 +307,9 @@ function load_email() {
       sender.innerText = `From: ${email['sender']}`;
       var body = document.createElement('p');
       body.innerText = email['body'];
+      body.style.display = 'block';
+      body.style.textOverflow = 'hidden';
+
       var time = document.createElement('p');
       time.innerText = email['timestamp'];
 

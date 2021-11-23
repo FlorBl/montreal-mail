@@ -89,6 +89,9 @@ body{
 @media only screen and (max-width: 545px) {
   /* For tablets: */
 
+  p{
+    display: none;
+  }
   
 .iconz{
   display: block;
